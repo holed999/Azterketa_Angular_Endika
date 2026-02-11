@@ -1,0 +1,51 @@
+<div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+  <table class="w-full text-sm text-left rtl:text-right text-body">
+
+    <thead class="bg-neutral-secondary-soft border-b border-default">
+      <tr>
+        <th scope="col" class="px-6 py-3 font-medium">
+          ID
+        </th>
+        <th scope="col" class="px-6 py-3 font-medium">
+          Izena
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @if (stations()) {
+
+        @for (station of stations().features; track station.id; let idx = $index) {
+          <tr
+            class="odd:bg-gray-200 even:bg-neutral-secondary-soft border-b border-default cursor-pointer hover:bg-gray-300 transition"
+            (click)="goToStation(station)"
+          >
+            <td class="px-6 py-4">
+              <a href="/{{station.id}}">
+              {{ station.properties.id }}
+              </a>
+            </td>
+            <td
+              scope="row"
+              class="px-6 py-4 font-medium text-heading whitespace-nowrap"
+            >
+              <a href="/{{station.id}}">
+              {{station.properties.name}}
+              </a>
+            </td>
+          </tr>
+        }
+
+      } @else {
+
+        <tr>
+          <td class="px-6 py-4 text-center" colspan="4">
+            Ez da daturik aurkitu
+          </td>
+        </tr>
+
+      }
+    </tbody>
+
+  </table>
+</div>
