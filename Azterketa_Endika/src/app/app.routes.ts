@@ -12,7 +12,7 @@ export const routes: Routes = [
     component: AirStations
   },
    {
-    path: 'air_stations/id',
+    path: 'air_stations/:id',
     component: Station
   },
    {

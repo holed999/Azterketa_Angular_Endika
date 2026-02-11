@@ -18,7 +18,7 @@
         @for (station of stations().features; track station.id; let idx = $index) {
           <tr
             class="odd:bg-gray-200 even:bg-neutral-secondary-soft border-b border-default cursor-pointer hover:bg-gray-300 transition"
-            (click)="goToStation(station)"
+            (click)="goToStation(station.properties.id)"
           >
             <td class="px-6 py-4">
               <a href="/{{station.id}}">

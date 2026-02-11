@@ -4,7 +4,7 @@ import { Opendata } from '../opendata';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-event-detail',
+  selector: 'app-station',
   imports: [CommonModule],
   standalone: true,
   templateUrl: './station.html',
@@ -14,7 +14,7 @@ export class Station implements OnInit {
   private route = inject(ActivatedRoute);
   private api = inject(Opendata);
 
-  event = signal<any | null>(null);
+  station = signal<any | null>(null);
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -22,10 +22,10 @@ export class Station implements OnInit {
 
     if (!id) return;
 
-    this.event.set(null);
+    this.station.set(null);
 
     this.api.station_info(id).subscribe(data => {
-  this.event.set(data);
+  this.station.set(data);
 });
   });
   }

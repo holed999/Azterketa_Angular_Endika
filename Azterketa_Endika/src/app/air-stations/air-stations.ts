@@ -23,6 +23,6 @@ export class AirStations {
 }
 
   public goToStation(id: any) {
-    this.router.navigate(['/air_stations/', this.stations.id]);
+    this.router.navigate(['/air_stations/'+id]);
 }
 }
